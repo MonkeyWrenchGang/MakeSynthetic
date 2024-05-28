@@ -1,0 +1,47 @@
+[{  
+    "n_samples"         : 100,
+    "n_categories"      : 5000,
+    "n_classes"         : 2,
+    "flip_y"            : 0.0001,
+    "class_sep"         : 2,
+    "weights"           : [0.95, 0.05], 
+    "pct_missing"       : 0.0,
+    "input_path"        : "./", 
+    "output_path"       : "./data/",
+    "s3_upload"         : "False" ,
+    "s3_bucket"         : "afd-sample-bucket",
+    "s3_path"           : "detector_1",
+    "output_file"       : "sample_loan_100",
+    "target_feature"    : "is_fraud",
+    "predict_baseline"  : "True",
+    "identity_features" : {
+        "event_timestamp"   : "str(fake.date_time_between(start_date='-1y', end_date='now', tzinfo=None))",
+        "transaction_id"    : "fake.random_number(digits=10, fix_len=True)",
+        "customer_name"     : "fake.name()",
+        "billing_address"   : "safe_address1()",
+        "billing_state"     : "fake.state_abbr(include_territories=False)"
+        
+    },
+    "categorical_features"  : {
+        "ip_address"        : "fake.ipv4(network=False, address_class=None, private=None)",
+        "avs_code"          : "fake.random_uppercase_letter()",
+        "email_address"     : "fake.free_email()",
+        "user_agent"        : "fake.user_agent()",
+        "billing_postal"    : "fake.postcode_in_state(state_abbr='FL')",
+        "phone_number"      : "fake.phone_number()",
+        "loan_purpose"      : "fake.random_element(elements=('Apple iPhone SE (2020)Apple iPhone 11','Apple iPhone 11 Pro',
+                                    'Apple iPhone 11 Pro Max',
+                                    'Samsung Galaxy S20 5G UW',
+                                    'Samsung Galaxy S20+ 5G'
+                                    'Samsung Galaxy A51'
+                                    'Samsung Galaxy Note 10+'
+                                    'Google Pixel 4'
+                                    'Moto Razr'
+                                    'OnePlus 8 5G UW'
+                                    'motorola edge+'))"
+    },
+    "numeric_features" : {
+        "loan_amt" : [10,10000],
+        "loan_term": [12,60]
+    }
+}]

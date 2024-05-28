@@ -1,0 +1,32 @@
+[{  
+    "n_samples"         : 9950,
+    "n_categories"      : 100,
+    "n_classes"         : 2,
+    "flip_y"            : 0.03,
+    "class_sep"         : 1,
+    "weights"           : [0.8, 0.2], 
+    "pct_missing"       : 0,
+    "input_path"        : "./", 
+    "output_path"       : "./data/", 
+    "s3_upload"         : "False",
+    "s3_bucket"         : "registration-use-case",
+    "s3_path"           : "synthetic-data",
+    "output_file"       : "new_account_10k",
+    "target_feature"    : "fraud_flag",
+    "predict_baseline"  : "True",
+    "identity_features" : {
+        "business_state": "fake.state_abbr()",
+        "credit_score": "fake.random_number(digits=3, fix_len=True)"
+    },
+    "categorical_features"  : {
+        "current_customer" : "fake.boolean(chance_of_getting_true=25)",
+        "ip_address"        : "fake.ipv4(network=False, address_class=None, private=None)",
+        "email_domain"        : "fake.free_email_domain()"
+    },
+    "numeric_features" : {
+        "email_age" : [0,60],
+        "customer_tenure"  : [0,120],
+        "balance_inqury_count":[0,20],
+        "balance_current_amt"  : [-100,20000]
+    }
+}]
